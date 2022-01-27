@@ -2,7 +2,7 @@
 
 ##### ASILO runs the algorithm that actually performs ACMG annotation and variants prioritization
 it runs in a docker container which waits for input files to be detected within the shared
-###### docker volume and, once detected, launch the analysis on them
+docker volume and, once detected, launch the analysis on them
 ###### input files are the outputs of VEP-FILTER Diagnosticator dependency
 
 ###### this application basically consists of a script `waiter-launcher-v0.sh` which constantly runs
