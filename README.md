@@ -6,7 +6,7 @@
 it runs [dockerized](https://hub.docker.com/r/cccnrc/diagnosticator-asilo) and waits for input files
 (whatever file ends with `*.asilo_input`) to be detected within the shared
 docker volume (among [Diagnosticator](https://diagnosticator.com), [VEP-filter](https://github.com/cccnrc/diagnosticator-VEP-filter) and [asilo](https://github.com/cccnrc/diagnosticator-asilo)) and, once detected, launch the analysis on them
-input files are the outputs of [VEP-filter](https://github.com/cccnrc/diagnosticator-VEP-filter) [Diagnosticator](https://diagnosticator.com) dependency
+input files are the outputs of [VEP-filter](https://github.com/cccnrc/diagnosticator-VEP-filter) (the other [Diagnosticator](https://diagnosticator.com) dependency)
 
 this application basically consists of a script `waiter-launcher-v0.sh` which constantly runs
 as soon as a file ending in: `*.asilo_input` (created by [VEP-filter](https://github.com/cccnrc/diagnosticator-VEP-filter) docker)  is detected
