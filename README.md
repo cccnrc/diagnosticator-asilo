@@ -2,16 +2,17 @@
 
 #### This is the ASILO dependency of [Diagnosticator](https://diagnosticator.com) local app
 
-ASILO runs the algorithm that actually performs ACMG annotation and variants prioritization
-it runs in a docker container which waits for input files to be detected within the shared
-docker volume and, once detected, launch the analysis on them
+`asilo` runs the algorithm that actually performs ACMG annotation and variants prioritization
+it runs [dockerized](https://hub.docker.com/r/cccnrc/diagnosticator-asilo) and waits for input files
+(whatever file ends with `*.asilo_input`) to be detected within the shared
+docker volume (among [Diagnosticator](https://diagnosticator.com), [VEP-filter](https://github.com/cccnrc/diagnosticator-VEP-filter) and [asilo](https://github.com/cccnrc/diagnosticator-asilo)) and, once detected, launch the analysis on them
 input files are the outputs of [VEP-filter](https://github.com/cccnrc/diagnosticator-VEP-filter) [Diagnosticator](https://diagnosticator.com) dependency
 
 this application basically consists of a script `waiter-launcher-v0.sh` which constantly runs
 as soon as a file ending in: `*.asilo_input` (created by [VEP-filter](https://github.com/cccnrc/diagnosticator-VEP-filter) docker)  is detected
 it operates the analysis with the filters specified in that input file and after the analysis
 run it moves the `*.asilo_input` file to `*.asilo_input.output` and creates `ASILO.NEW`
-which are used by [Diagnosticator](https://diagnosticator.com) rq-worker to understand which is the most recent analysis 
+which are used by [Diagnosticator](https://diagnosticator.com) rq-worker to understand which is the most recent analysis
 
 
 
@@ -55,4 +56,13 @@ git checkout <your-name>-development
 git add .
 git commit -m "<your-name>-development ..."
 git push https://github.com/cccnrc/diagnosticator-asilo.git <your-name>-development
+```
+
+### PULL to dockerhub [diagnosticator-asilo](https://hub.docker.com/r/cccnrc/diagnosticator-asilo)
+```
+docker build -t cccnrc/diagnosticator-asilo:0.3 .
+docker build -t cccnrc/diagnosticator-asilo:latest .
+
+docker push cccnrc/diagnosticator-asilo:0.3
+docker push cccnrc/diagnosticator-asilo:latest
 ```
