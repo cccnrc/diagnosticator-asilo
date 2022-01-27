@@ -1,7 +1,7 @@
 # this is the ASILO dependency of Diagnosticator local app
 
 ##### ASILO runs the algorithm that actually performs ACMG annotation and variants prioritization
-###### it runs in a docker container which waits for input files to be detected within the shared
+it runs in a docker container which waits for input files to be detected within the shared
 ###### docker volume and, once detected, launch the analysis on them
 ###### input files are the outputs of VEP-FILTER Diagnosticator dependency
 
