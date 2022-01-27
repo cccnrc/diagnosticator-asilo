@@ -55,7 +55,7 @@ while true; do
      echo "    - done: $OUTPUT"
   else
     echo "  - NO INPUT file"
-    sleep 2
+    sleep 10
   fi
 done
 
